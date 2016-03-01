@@ -2,9 +2,11 @@ import math, future
 import linalg, systemSolver
 
 proc newton_cotes*(f: float -> float; moment: int -> float; a, b: float, n: static[int]): float =
-    echo $zeros(3)
-    echo $solveWithGauss(zeros(3,3), zeros(3))
-    echo $solveWithGauss(makeMatrix(n, n, proc(i, j:int):float =
-                                          pow(a + i.float*(b - a) / n.float, j.float)),
-                         makeVector(n, proc(i:int):float = moment(i)))
+    const N = n
+    let mu = makeVector(N, proc(i: int): float = moment(i));
+    let X = makeMatrix(N, N, proc(i, j: int): float =
+                                 pow(a + j.float*(b - a) / (n-1).float, (i).float))
+    let coef = solveWithGauss(X, mu)
+    for i in 0..<N:
+        result += coef[i] * f(a + i.float * (b - a)/(n-1).float)
 

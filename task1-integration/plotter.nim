@@ -26,7 +26,7 @@ proc setDefaults() =
     scale = width.float / (b - a)
     zoomed = false
 
-proc convertCoords(x, y: float): graphics.TPoint =
+proc convertCoords(x, y: float): graphics.Point =
     result.x = ((x + xoffset) * scale).int
     result.y = (height - (y + yoffset) * scale).int
 

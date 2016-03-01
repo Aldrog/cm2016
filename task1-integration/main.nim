@@ -11,7 +11,7 @@ var res1 = newSeq[float](0)
 var res2 = newSeq[float](0)
 var res3 = newSeq[float](0)
 
-echo "Rectangles\t\tTrapeziums\t\tSimpson"
+echo "Rectangles (Red)\tTrapeziums (Green)\tSimpson (Blue)"
 for n in x:
     res1.add abs(preciseResult - rectangles(f, a, b, n.int))
     res2.add abs(preciseResult - trapeziums(f, a, b, n.int))

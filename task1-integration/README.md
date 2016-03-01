@@ -1,7 +1,7 @@
 # Task 1. Integration Methods
 Write 3 integration methods:
-- [x] Rectangle method
-- [x] Triangle method
+- [x] Central rectangles method
+- [x] Trapeziums method
 - [x] Simpson method
 
 For the following function and integration borders:  
